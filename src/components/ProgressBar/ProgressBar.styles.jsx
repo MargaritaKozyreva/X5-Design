@@ -1,16 +1,22 @@
 import styled, { css } from "styled-components";
-import { progressbarStyle } from './progressbar';
+import { progressbarStyle } from "./progressbar";
 
-
-const line =progressbarStyle.line;
+const line = progressbarStyle.line;
 const circle = progressbarStyle.circle;
 
-const getStyles = (props) => console.log('ooooo'+props)
+const ROOT_WIDTH = {
+  s: 20,
+  m: 40,
+  l: 100,
+};
 
 export const Root = styled.div`
   font-family: "Open Sans", sans-serif;
   color: #222429;
-  width: 100%;
+  ${props =>
+    css`
+      width: ${ROOT_WIDTH[props.size]}%;
+    `};
   box-sizing: border-box;
 
   .root-title {
@@ -49,7 +55,7 @@ export const Progress = styled.div`
         : "#FF493C"};
     `}
 
-    ${line.progress.base}
+  ${line.progress.base}
 `;
 
 export const Box = styled.div`
@@ -67,22 +73,10 @@ export const Line = styled.div`
   ${line.back}
 `;
 
-export const Circle = styled.div`
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  clip: rect(auto, auto, auto, auto);
-  border: 0.9em solid #e1e5eb;
-  border-radius: 50%;
-`;
-
 
 export const CircleSVG = styled.svg`
   fill: none;
-  ${props => circle.size[props.size]};
-
+  ${props => circle.box.size[props.size]};
 `;
 
 const RADIUS = {
@@ -100,22 +94,29 @@ const calculateProgressLength = (r, value) => {
 
 export const CircleBack = styled.circle`
   ${props => circle.size[props.size]};
-  ${circle.back}
+  ${circle.back};
 `;
 
 export const CircleProgress = styled.circle`
   stroke-linecap: round;
   transform: rotate(-90deg);
   transform-origin: 50%;
-  
+  transition: ease-in .3s;
+
+
   ${props => circle.size[props.size]};
   ${circle.progress.base}
-  
+
   ${({ size, value }) => css`
-  stroke-dasharray: ${(calculateCircleLength(RADIUS[size]) * value) / 100}
-  ${calculateProgressLength(RADIUS[size], value)};
+    stroke-dasharray: ${(calculateCircleLength(RADIUS[size]) * value) / 100}
+      ${calculateProgressLength(RADIUS[size], value)};
+    stroke: ${value >= 80
+        ? "#ADE25C"
+        : value >= 50 && value < 80
+        ? "#FFA800"
+        : "#FF493C"}
   `}
-  stroke: #0fe4e4;
+
 `;
 
 export const CircleBox = styled.div`

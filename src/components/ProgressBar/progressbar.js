@@ -62,7 +62,7 @@ export const progressbarStyle = {
       },
       "back": {
         "stroke-miterlimit": 10,
-        "stroke": "#2B2D33",
+        "stroke": "#e1e5eb",
         "fill": "none"
       },
       "progress": {
