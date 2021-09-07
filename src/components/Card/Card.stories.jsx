@@ -6,7 +6,7 @@ export default {
   component: Card,
 };
 
-export const Template = args => <Card {...args} />;
+const Template = args => <Card {...args} />;
 
 export const withTitle = Template.bind({});
 

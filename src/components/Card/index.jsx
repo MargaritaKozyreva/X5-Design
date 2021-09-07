@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../../components/style.css";
 import "./index.css";
 import { Root, Header, Footer, Title } from "./Card.styles";
 
@@ -17,8 +16,6 @@ const Card = props => {
   );
 };
 
-export default Card;
-
 Card.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
@@ -26,3 +23,5 @@ Card.propTypes = {
   footer: React.ReactNode,
   stretch: PropTypes.bool,
 };
+
+export default Card;
