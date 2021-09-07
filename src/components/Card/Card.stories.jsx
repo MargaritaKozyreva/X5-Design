@@ -14,9 +14,4 @@ withTitle.args = {
     title: 'Hola!'
 }
 
-export const withoutTitle = Template.bind({});
-
-withoutTitle.args = {
-    content: 'Note you can change the folder that Storybook uses by setting the -c flag to your start-storybook and build-storybook scripts.!'
-}
 

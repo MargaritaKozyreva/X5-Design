@@ -2,22 +2,27 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../../components/style.css";
 import "./index.css";
+import { Root, Header, Footer, Title } from "./Card.styles";
 
-const Card = ({ id, label, design, title, content }) => {
-  const mode = design === "primary" ? "root--primary" : "root--secondary";
+const Card = props => {
+  const { children, title, header, footer, ...attrs } = props;
+
+  const showHeader = header || title;
+
   return (
-    <div id={id} className={["root", mode].join(" ")}>
-      {title && <h1>{title}</h1>}
-      {content && <div>{content}</div>}
-    </div>
+    <Root>
+      {showHeader && <Header>{<Title>{title}</Title>}</Header>}
+      {footer && <Footer>{footer}</Footer>}
+    </Root>
   );
 };
 
 export default Card;
 
 Card.propTypes = {
-  design: PropTypes.oneOf(["primary", "secondary"]),
+  children: PropTypes.node,
   title: PropTypes.string,
-  content: PropTypes.string,
-  id: PropTypes.string,
+  header: React.ReactNode,
+  footer: React.ReactNode,
+  stretch: PropTypes.bool,
 };

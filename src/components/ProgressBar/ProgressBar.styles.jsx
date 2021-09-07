@@ -73,7 +73,6 @@ export const Line = styled.div`
   ${line.back}
 `;
 
-
 export const CircleSVG = styled.svg`
   fill: none;
   ${props => circle.box.size[props.size]};
@@ -101,8 +100,7 @@ export const CircleProgress = styled.circle`
   stroke-linecap: round;
   transform: rotate(-90deg);
   transform-origin: 50%;
-  transition: ease-in .3s;
-
+  transition: ease-in 0.3s;
 
   ${props => circle.size[props.size]};
   ${circle.progress.base}
@@ -110,13 +108,12 @@ export const CircleProgress = styled.circle`
   ${({ size, value }) => css`
     stroke-dasharray: ${(calculateCircleLength(RADIUS[size]) * value) / 100}
       ${calculateProgressLength(RADIUS[size], value)};
-    stroke: ${value >= 80
-        ? "#ADE25C"
-        : value >= 50 && value < 80
-        ? "#FFA800"
-        : "#FF493C"}
-  `}
 
+    //Вынести в функцию проверки getComplitnessColor
+    stroke: ${(value >= 80 && "#ADE25C") ||
+    (value >= 50 && "#FFA800") ||
+    "#FF493C"};
+  `}
 `;
 
 export const CircleBox = styled.div`
