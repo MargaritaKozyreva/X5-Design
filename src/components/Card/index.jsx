@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./index.css";
+import "./index.scss";
 import { Root, Header, Footer, Title } from "./Card.styles";
 
 const Card = props => {
-  const { children, title, header, footer, ...attrs } = props;
+  const { children, title, header, footer } = props;
 
   const showHeader = header || title;
 
