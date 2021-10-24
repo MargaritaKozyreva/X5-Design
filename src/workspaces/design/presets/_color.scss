@@ -47,6 +47,7 @@
      * color-accent
      */
 
+     
     --color-accent-100: #1976d2;
     --color-accent-90: #1565c0;
     --color-accent-80: #1976d2;
@@ -57,6 +58,17 @@
     --color-accent-30: #90caf9;
     --color-accent-20: #bbdefb;
     --color-accent-10: #e3f2fd;
+
+    // --color-accent-1-100:
+    // --color-accent-1-90:
+    --color-accent-1-80: #20650E;
+    // --color-accent-1-70:
+    --color-accent-1-60: #479620;
+    // --color-accent-1-50: 
+    // --color-accent-1-40: 
+    // --color-accent-1-30: 
+    // --color-accent-1-20: 
+    // --color-accent-1-10: 
 
     /**
      * color-additional-blue
@@ -81,4 +93,12 @@
     --color-additional-yellow-dark: #ffa800;
     --color-additional-yellow-middle: #fdcb19;
     --color-additional-yellow-light: #fee281;
+
+
+    // TODO: скорее всего, уровень темы. Кроме того
+    // у нас опять цвет с альфа-каналом, просто захардкадил ее
+    // https://stackoverflow.com/questions/7015302/css-hexadecimal-rgba
+    --button-hover:  #5faf2d26; // 26 - 15% alpha
+    --button-active:  #5faf2d72; // 72 - 45% alpha
+    --button-disabled:  var(--color-gray-20);
 }
