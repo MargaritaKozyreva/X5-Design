@@ -1,0 +1,19 @@
+@import '../../design/root';
+
+.icon {
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&_size {
+		&_s { width: var(--gp-l); height: var(--gp-l); } 
+	}
+
+	&__svg {
+		&_size {
+
+			&_s { width: var(--gp-m); height: var(--gp-m); } 
+		}
+	}
+}
