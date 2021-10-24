@@ -1,1 +1,3 @@
-export { default as Card } from './Root';
+import Card  from './Root';
+
+export default Card

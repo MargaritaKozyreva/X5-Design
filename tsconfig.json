@@ -38,11 +38,7 @@
     "suppressImplicitAnyIndexErrors": false,
   },
   "include": [
-<<<<<<< HEAD
     "src/workspaces/**/*"
-=======
-    "src/**/*"
->>>>>>> 17f7a061189e00c496c957e27a2e5301f619cdfc
   ],
   "exclude": [
     "node_modules",

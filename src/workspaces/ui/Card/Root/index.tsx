@@ -17,10 +17,10 @@ interface HTMLAttributesProps {
 	className?: string;
 }
 
-const Card = (props: Props) => {
+const Card = ({ children, design, className }: Props) => {
 	return (
 		<CardContext.Provider value={ {} }>
-			<Layout design={ props.design || 'default' }>{ props.children }</Layout>
+			<Layout className={className} design={ design || 'default' }>{ children }</Layout>
 		</CardContext.Provider>
 	);
 };
@@ -28,4 +28,4 @@ const Card = (props: Props) => {
 Card.Zone = Zone;
 Card.Content = Content;
 
-export { Card };
+export default Card

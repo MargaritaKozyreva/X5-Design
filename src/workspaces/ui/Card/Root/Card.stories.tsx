@@ -1,6 +1,6 @@
 import { H1, H2, H3, H4, H5, Span, P } from '@ui/Typography';
 import React from 'react';
-import { Card, Props } from '.';
+import Card, { Props } from './index';
 
 export default {
 	title: 'Example/Card',
