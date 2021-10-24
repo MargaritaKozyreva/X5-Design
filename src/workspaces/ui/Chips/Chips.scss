@@ -1,0 +1,102 @@
+@import '../../design/root';
+
+
+@mixin reset-button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  &:disabled {
+    cursor: default;
+  }
+}
+
+@mixin regular-T1 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+@mixin active {
+  background-color:  var(--button-active);
+  color: var(--color-accent-1-80);
+}
+
+@mixin chips-action {
+  background-color: var(--color-white);
+  color:  var(--color-gray-80);
+
+  transition: background-color .2s, color .2s ;
+  &:hover {
+    background-color: var(--button-hover);
+    color: var(--color-accent-1-60);
+  }
+
+  &:active {
+    @include active
+  }
+
+  &:disabled {
+    background-color: var(--button-disabled);
+    color: var(--color-gray-40);
+  }
+}
+
+
+.chips {
+  // для большинства компонетов x5.
+  @include reset-button;
+  @include chips-action;
+  box-sizing: border-box;
+  border-radius: 20px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: row;
+  &_reverse {
+    flex-direction: row-reverse;
+  }
+  &_active {
+    @include active
+  }
+
+  /* Размер чипсы */
+  &_size {
+    &_s{
+      padding: calc(var(--gp-xs)/2);
+    }
+    &_l {
+      padding: var(--gp-xs);
+    }
+  }
+  /* Текст меняет горизонтальный паддинг */
+  &_with-text {
+    padding-left: var(--gp-m);
+    padding-right: var(--gp-m);
+  }
+  /* С текстом иконка приобретает отступ от текста */
+  &_with-text &__icon {
+    &_left {
+      margin-right: 4px;
+    }
+    &_right {
+      margin-left: 4px;
+    }
+  }
+
+  &__text {
+    @include regular-T1;
+    line-height: 24px;
+    background-color: transparent;
+  }
+}
+
+
