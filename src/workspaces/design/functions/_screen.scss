@@ -2,5 +2,9 @@
 @use 'sass:string';
 
 @function vm($value, $base: var(--desktop-xl)) {
-    @return $value / $base * 100vw;
+	@return $value / $base * 100vw;
+}
+
+@function hexa($value, $opacity: 1) {
+	@return rgba(red($value), green($value), blue($value), $opacity);
 }
