@@ -1,0 +1,30 @@
+@import '../../design/root';
+
+.button-grid_grey {
+	margin-bottom: 16px;
+	padding: 16px;
+
+	background-color: var(--color-gray-10);
+}
+
+.button-grid_white {
+	padding: 16px;
+	background-color: white;
+}
+
+.button-card {
+	background-color: var(--color-gray-10);
+	font-family: Roboto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 15px;
+	border-radius: 10px;
+	padding: 16px;
+	justify-items: center;
+	align-items: center;
+	position: relative;
+}
+
+.button-card__size {
+	justify-self: start;
+}
