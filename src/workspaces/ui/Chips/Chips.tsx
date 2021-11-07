@@ -9,19 +9,12 @@ export type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 	children?: string
 	value?: string
 	reverse?: boolean
-	active?: boolean
+	// active?: boolean
 }
 
-export default function Chips({
-	children,
-	size,
-	value,
-	icon,
-	reverse,
-	className,
-	active,
-	...props
-}: Props) {
+export default function Chips(props: Props) {
+	const { children, size, value, icon, reverse, className, ...p } = props
+
 	const styles = useMemo(
 		() => ({
 			container: cn(
@@ -40,7 +33,7 @@ export default function Chips({
 	)
 
 	return (
-		<button {...props} className={styles.container}>
+		<button {...p} className={styles.container}>
 			{icon && <Icon size="s" type={icon} className={styles.icon} />}
 			<span className={styles.text}>{value || children}</span>
 		</button>
